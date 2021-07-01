@@ -6,7 +6,7 @@ export class UserController {
 
     signup = async (req: Request, res: Response) => {
         try {
-            const { name, email, nickname, password } = req.body;
+            const {name, email, nickname, password} = req.body;
 
             const input: SignupDTO = {
                 name: name,

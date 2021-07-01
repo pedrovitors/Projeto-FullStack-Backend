@@ -3,8 +3,8 @@ import express from "express";
 export const imageRouter = express.Router()
 const imageController = new ImageController
 
-imageController.post("/add", ImageController.addImage)
+imageRouter.post("/add", imageController.addImage)
 
-imageController.get("/", ImageController.getAllImages)
+imageRouter.get("/", imageController.getAllImages)
 
-imageController.get("/:id", ImageController.getSpecificImage)
+imageRouter.get("/:id", imageController.getSpecificImage)

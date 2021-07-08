@@ -8,4 +8,4 @@ musicRouter.post("/add", musicController.addMusic)
 
 musicRouter.get("/", musicController.getAllMusics)
 
-musicRouter.get("/:id", musicController.getSpecificMusic)
+musicRouter.get("/musictitle", musicController.getSpecificMusic)

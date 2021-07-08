@@ -21,7 +21,9 @@ export class UserController {
                 .status(201)
                 .send({token})
         } catch (error) {
-            throw new Error(error.message)
+            res
+                .status(400)
+                .send(error.message)
         }
     }
 
@@ -40,7 +42,9 @@ export class UserController {
                 .status(200)
                 .send({token})
         } catch (error) {
-            throw new Error(error.message)
+            res
+                .status(400)
+                .send(error.message)
         }
     }
 

@@ -14,8 +14,8 @@ export class MusicBusiness {
                 throw new Error("Invalid credentials")
             }
 
-            if (!input.title || !input.album || !input.file || !input.author || !input.genre) {
-                throw new Error("Fields 'email' and 'password' are required.")
+            if (!input.title || !input.album || !input.file || !input.genre) {
+                throw new Error("Fields 'title', 'album', 'file' and 'genre' are required.")
             }
 
             const idGenerator = new IdGenerator()

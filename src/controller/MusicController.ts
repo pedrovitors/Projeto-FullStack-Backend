@@ -51,7 +51,9 @@ export class MusicController {
                 .send({music})
 
         } catch (error) {
-            throw new Error(error.message)
+            res
+                .status(400)
+                .send(error.message)
         }
     }
 }

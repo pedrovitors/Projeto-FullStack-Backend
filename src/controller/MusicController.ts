@@ -6,8 +6,10 @@ export class MusicController {
     addMusic = async (req: Request, res: Response) => {
         try {
             const {title, author, file, genre, album} = req.body
+            const token = req.headers.authorization as string
 
             const input: MusicDTO = {
+                token,
                 title: title,
                 author: author,
                 file: file,
@@ -21,7 +23,9 @@ export class MusicController {
                 .status(201)
                 .send("Song has been added.")
         } catch (error) {
-            throw new Error(error.message)
+            res
+                .status(400)
+                .send(error.message)
         }
     }
 
@@ -37,7 +41,9 @@ export class MusicController {
                 .send({music})
 
         } catch (error) {
-            throw new Error(error.message)
+            res
+                .status(400)
+                .send(error.message)
         }
     }
 

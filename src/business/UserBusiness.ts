@@ -1,8 +1,8 @@
-import {LoginInputDTO, SignupDTO, User} from "../entities/User";
-import {IdGenerator} from "../services/idGenerator";
-import {HashManager} from "../services/hashManager";
-import {TokenManager} from "../services/authenticator";
-import {UserDatabase} from "../data/UserDatabase";
+import {LoginInputDTO, SignupDTO, User} from "../entities/User"
+import {IdGenerator} from "../services/idGenerator"
+import {HashManager} from "../services/hashManager"
+import {TokenManager} from "../services/authenticator"
+import {UserDatabase} from "../data/UserDatabase"
 
 export class UserBusiness {
 

@@ -4,15 +4,16 @@ export type Music = {
     author: string
     date: Date
     file: string
-    genre: []
+    genre: string[]
     album: string
 }
 
 export interface MusicDTO {
+    token: string
     title: string
     author: string
     file: string
-    genre: []
+    genre: string[]
     album: string
 }
 

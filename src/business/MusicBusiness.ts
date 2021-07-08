@@ -1,11 +1,19 @@
 import {Music, MusicDTO, SearchDTO} from "../entities/Music";
 import {IdGenerator} from "../services/idGenerator";
 import {MusicDatabase} from "../data/MusicDatabase";
+import {TokenManager} from "../services/authenticator";
 
 export class MusicBusiness {
 
     async addMusic(input: MusicDTO) {
         try {
+            const token = new TokenManager()
+            const result = token.getTokenData(input.token)
+
+            if (!result) {
+                throw new Error("Invalid credentials")
+            }
+
             if (!input.title || !input.album || !input.file || !input.author || !input.genre) {
                 throw new Error("Fields 'email' and 'password' are required.")
             }

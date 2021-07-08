@@ -1,8 +1,8 @@
-import {LoginInputDTO, SignupDTO, User} from "../entities/User";
-import {IdGenerator} from "../services/idGenerator";
-import {HashManager} from "../services/hashManager";
-import {TokenManager} from "../services/authenticator";
-import {UserDatabase} from "../data/UserDatabase";
+import {LoginInputDTO, SignupDTO, User} from "../entities/User"
+import {IdGenerator} from "../services/idGenerator"
+import {HashManager} from "../services/hashManager"
+import {TokenManager} from "../services/authenticator"
+import {UserDatabase} from "../data/UserDatabase"
 
 export class UserBusiness {
 
@@ -11,6 +11,11 @@ export class UserBusiness {
             if (!input.name || !input.nickname || !input.email || !input.password) {
                 throw new Error("Fields 'name', 'nickname', 'email' and 'password' are required.")
             }
+
+            if (input.password.length < 6) {
+                throw new Error ("Your password must have at least 6 digits.")
+            }
+
             const idGenerator = new IdGenerator()
             const id: string = idGenerator.generateId()
 
@@ -27,7 +32,6 @@ export class UserBusiness {
 
             await new UserDatabase().insertUser(user)
             return new TokenManager().generateToken({id})
-
 
         } catch (error) {
             throw new Error(error.message)

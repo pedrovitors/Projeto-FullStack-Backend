@@ -11,6 +11,11 @@ export class UserBusiness {
             if (!input.name || !input.nickname || !input.email || !input.password) {
                 throw new Error("Fields 'name', 'nickname', 'email' and 'password' are required.")
             }
+
+            if (input.password.length < 6) {
+                throw new Error ("Your password must have at least 6 digits.")
+            }
+
             const idGenerator = new IdGenerator()
             const id: string = idGenerator.generateId()
 

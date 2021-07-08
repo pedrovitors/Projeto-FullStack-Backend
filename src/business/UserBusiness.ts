@@ -33,7 +33,6 @@ export class UserBusiness {
             await new UserDatabase().insertUser(user)
             return new TokenManager().generateToken({id})
 
-
         } catch (error) {
             throw new Error(error.message)
         }

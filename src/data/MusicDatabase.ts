@@ -46,12 +46,13 @@ export class MusicDatabase extends BaseDatabase {
 
     async getSpecificMusic(title: string): Promise<Music> {
         try {
-            const queryResult = await this.connection
-                .select("*")
-                .from(MusicDatabase.TABLE_NAME)
-                .where({title})
+            const queryResult = await this.connection.raw(`
+            SELECT M.id, title, author, album, date, file, G.genre
+                FROM PROJETO_FULLSTACK_MUSIC M
+                LEFT JOIN PROJETO_FULLSTACK_MUSIC_GENRES G ON G.id = M.genre
+                WHERE title = "${title}"`)
 
-            return toMusicModel(queryResult[0])
+            return toMusicModel(queryResult[0][0])
         } catch (error) {
             throw new Error(error.sqlMessage || error.message)
         }

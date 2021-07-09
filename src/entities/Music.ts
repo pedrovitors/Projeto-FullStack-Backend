@@ -22,13 +22,5 @@ export interface SearchDTO {
 }
 
 export function toMusicModel(obj: any): Music {
-    return obj && {
-        id: obj.id,
-        title: obj.title,
-        author: obj.author,
-        date: obj.date,
-        file: obj.file,
-        genre: obj.genre,
-        album: obj.album
-    }
+    return obj
 }

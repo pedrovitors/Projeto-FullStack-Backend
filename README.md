@@ -59,7 +59,7 @@ Authorization: Token
 music: [{
 "id":"4e9cc2af-7ab1-41dc-8409-032bda8016a8",
 "title":"Shake It Bololo",
-"author":"pedrovitors",
+"author":"exemplo",
 "album":"Clássicas",
 "date":"2021-07-08T00:00:00.000Z",
 "file":"https://www.youtube.com/watch?v=oowBXzfcl90",
